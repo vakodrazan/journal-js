@@ -1,4 +1,3 @@
-
 let journalEntries = [
     {
         title: 'Description of the day', 
@@ -23,13 +22,17 @@ while (journalRequirement === '') {
     while (journalChoice < 0 || journalChoice > 3) {
         journalChoice = Number(prompt("Must be number between 1 and 3! \n Choose (1) for listing all the entries. \n Choose (2) for adding new entry. \n choose (3) to quit.")); 
     }
+
     if (journalChoice === 1) {
         alert(`Title: ${journalEntries[0].title} \n Content: ${journalEntries[0].content}`);
         alert(`Title: ${journalEntries[1].title} \n Content: ${journalEntries[1].content}`);
         alert(`Title: ${journalEntries[2].title} \n Content: ${journalEntries[2].content}`);
     } else if (journalChoice === 2) {
-        newJournalTitle = String(prompt("Enter journal title"))
-        newJournalContent = String(prompt("Enter you new chosen content relate to your title: "));
+        let newJournalTitle = String(prompt("Enter journal title"))
+        let newJournalContent = String(prompt("Enter you new chosen content relate to your title: "));
+        if (newJournalTitle && newJournalContent) {
+            alert(`Title: ${newJournalTitle} \n ${newJournalContent}`);
+        }
     }
 }
 

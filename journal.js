@@ -28,15 +28,18 @@ while (journalRequirement === '') {
         alert(`Title: ${journalEntries[1].title} \n Content: ${journalEntries[1].content}`);
         alert(`Title: ${journalEntries[2].title} \n Content: ${journalEntries[2].content}`);
     } else if (journalChoice === 2) {
-        let newJournalTitle = String(prompt("Enter journal title"))
-        let newJournalContent = String(prompt("Enter you new chosen content relate to your title: "));
-        if (newJournalTitle && newJournalContent) {
-            alert(`Title: ${newJournalTitle} \n Content: ${newJournalContent}`);
-        }
+        let title = prompt('Enter journal title');
+        let content = prompt('Enter you new chosen content relate to your title: ');
+
+        const newEntry = {
+            title: title, 
+            content: content
+        };
+        journalEntries.push(newEntry);
 
     } else if (journalChoice === 3) {
         alert("Thank you for taking parts in my journal entries");
         break;
-    }
+    } 
 }
 

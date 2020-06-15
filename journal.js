@@ -31,8 +31,12 @@ while (journalRequirement === '') {
         let newJournalTitle = String(prompt("Enter journal title"))
         let newJournalContent = String(prompt("Enter you new chosen content relate to your title: "));
         if (newJournalTitle && newJournalContent) {
-            alert(`Title: ${newJournalTitle} \n ${newJournalContent}`);
+            alert(`Title: ${newJournalTitle} \n Content: ${newJournalContent}`);
         }
+
+    } else if (journalChoice === 3) {
+        alert("Thank you for taking parts in my journal entries");
+        break;
     }
 }
 

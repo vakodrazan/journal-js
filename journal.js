@@ -24,9 +24,9 @@ while (journalRequirement === '') {
     }
 
     if (journalChoice === 1) {
-        alert(`Title: ${journalEntries[0].title} \n Content: ${journalEntries[0].content}`);
-        alert(`Title: ${journalEntries[1].title} \n Content: ${journalEntries[1].content}`);
-        alert(`Title: ${journalEntries[2].title} \n Content: ${journalEntries[2].content}`);
+        for (let i = 0; i < journalEntries.length; i++) {
+            alert(`Title: ${journalEntries[i].title} \n Content: ${journalEntries[i].content}`);
+        }
     } else if (journalChoice === 2) {
         let title = prompt('Enter journal title');
         let content = prompt('Enter you new chosen content relate to your title: ');
@@ -36,6 +36,9 @@ while (journalRequirement === '') {
             content: content
         };
         journalEntries.push(newEntry);
+        for (let i = 0; i <journalEntries.length; i ++) {
+            alert(`Title: ${journalEntries[i].title} \n Content: ${journalEntries[i].content}`);
+        }
 
     } else if (journalChoice === 3) {
         alert("Thank you for taking parts in my journal entries");

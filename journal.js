@@ -45,43 +45,35 @@ const deleteIndex = () => { // Function when delete a new specific entry
 
 }
 
-let journalRequirement = '';
-
-while (journalRequirement === '') { // Ask user's choice
-    let journalChoice = Number(prompt(`Welcome to my journal!
+const userChoice = () => { // Input message that guide the user what to click
+journalChoice = Number(prompt(`Welcome to my journal!
 Choose (1) for listing all the entries.
 Choose (2) for adding new entry.
 Choose (3) to quit.
 Choose (4) to delete the last entry.
 Choose (5) to delete a specific entry. (with its index)`));
-    while (journalChoice < 0 || journalChoice > 5) { // When enter a wrong choice
-        journalChoice = Number(prompt(`Must be number between 1 and 5!
-Choose (1) for listing all the entries.
-Choose (2) for adding new entry.
-Choose (3) to quit.
-Choose (4) to delete the last entry.
-Choose (5) to delete a specific entry. (with its index)
-`));
-    }
+};
 
+
+let journalRequirement = '';
+
+while (journalRequirement === '') { // Ask user's choice
+    userChoice();
+    while (journalChoice < 0 || journalChoice > 5) { // When enter a wrong choice
+        userChoice();
+    }
     if (journalChoice === 1) { // Checking all the entry list
         entryList();
     } else if (journalChoice === 2) { // Adding a new entry
-
         addEntry();
-
     } else if (journalChoice === 3) { // Quite the program
         alert("Thank you for taking parts in my journal entries");
         break;
-
     } else if (journalChoice === 4) { // Delete the last entry
         let entryDeleted = journalEntries.pop();
         alert(`You have deleted the last entry: ${entryDeleted.title}`);
-
     } else if (journalChoice === 5) { // Delete a specific entry
-
         deleteIndex();
-
     }
 }
 

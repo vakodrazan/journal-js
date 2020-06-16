@@ -1,3 +1,5 @@
+// Create an object array
+
 let journalEntries = [
     {
         title: 'Description of the day', 
@@ -17,21 +19,29 @@ let journalEntries = [
 
 let journalRequirement = '';
 
-while (journalRequirement === '') {
+while (journalRequirement === '') { // Ask user's choice
     let journalChoice = Number(prompt(`Welcome to my journal!
 Choose (1) for listing all the entries.
 Choose (2) for adding new entry.
 Choose (3) to quit.
-Choose (4) to delete the last entry.`));
-    while (journalChoice < 0 || journalChoice > 4) {
-        journalChoice = Number(prompt("Must be number between 1 and 3! \n Choose (1) for listing all the entries. \n Choose (2) for adding new entry. \n choose (3) to quit.")); 
+Choose (4) to delete the last entry.
+Choose (5) to delete a specific entry. (with its index)`));
+    while (journalChoice < 0 || journalChoice > 5) { // When enter a wrong choice
+        journalChoice = Number(prompt(`Must be number between 1 and 5!
+Choose (1) for listing all the entries.
+Choose (2) for adding new entry.
+Choose (3) to quit.
+Choose (4) to delete the last entry.
+Choose (5) to delete a specific entry. (with its index)
+`));
     }
 
-    if (journalChoice === 1) {
+    if (journalChoice === 1) { // Checking all the entry list
         for (let i = 0; i < journalEntries.length; i++) {
             alert(`Title: ${journalEntries[i].title} \n Content: ${journalEntries[i].content}`);
         }
-    } else if (journalChoice === 2) {
+
+    } else if (journalChoice === 2) { // Adding a new entry
         let title = prompt('Enter journal title');
         let content = prompt('Enter you new chosen content relate to your title: ');
 
@@ -39,17 +49,25 @@ Choose (4) to delete the last entry.`));
             title: title, 
             content: content
         };
+
         journalEntries.push(newEntry);
         for (let i = 0; i <journalEntries.length; i ++) {
             alert(`Title: ${journalEntries[i].title} \n Content: ${journalEntries[i].content}`);
         }
 
-    } else if (journalChoice === 3) {
+    } else if (journalChoice === 3) { // Quite the program
         alert("Thank you for taking parts in my journal entries");
         break;
-    } else if (journalChoice === 4) {
+
+    } else if (journalChoice === 4) { // Delete the last entry
         let entryDeleted = journalEntries.pop();
-        alert(`We have deleted the last entry: ${entryDeleted.title}`);
+        alert(`You have deleted the last entry: ${entryDeleted.title}`);
+
+    } else if (journalChoice === 5) { // Delete a specific array
+        let indexToDelete = Number(prompt(`Enter the entry's number that you want to delete (1 to ${journalEntries.length})`));
+        let deleteEntry = journalEntries.splice(indexToDelete--, 1);
+        alert(`You have deleted this: ${deleteEntry[0].title}`)
+
     }
 }
 

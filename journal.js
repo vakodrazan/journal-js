@@ -18,8 +18,12 @@ let journalEntries = [
 let journalRequirement = '';
 
 while (journalRequirement === '') {
-    let journalChoice = Number(prompt("Welcome to my journal! \n Choose (1) for listing all the entries. \n Choose (2) for adding new entry. \n choose (3) to quit."));
-    while (journalChoice < 0 || journalChoice > 3) {
+    let journalChoice = Number(prompt(`Welcome to my journal!
+Choose (1) for listing all the entries.
+Choose (2) for adding new entry.
+Choose (3) to quit.
+Choose (4) to delete the last entry.`));
+    while (journalChoice < 0 || journalChoice > 4) {
         journalChoice = Number(prompt("Must be number between 1 and 3! \n Choose (1) for listing all the entries. \n Choose (2) for adding new entry. \n choose (3) to quit.")); 
     }
 
@@ -43,6 +47,9 @@ while (journalRequirement === '') {
     } else if (journalChoice === 3) {
         alert("Thank you for taking parts in my journal entries");
         break;
-    } 
+    } else if (journalChoice === 4) {
+        let entryDeleted = journalEntries.pop();
+        alert(`We have deleted the last entry: ${entryDeleted.title}`);
+    }
 }
 
